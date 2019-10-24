@@ -13,9 +13,13 @@ open the folder and
  after that you will get below lines
  
   -Starting up http-server, serving ./
+  
   -Available on:
+  
   -http:// <ip address>
+ 
   -http:// <ip address>
+ 
   -Hit CTRL-C to stop the server
   
   
