@@ -1,0 +1,71 @@
+<!doctype html>
+<html lang="en" ng-app="angularTable">
+  <head>
+    <meta charset="utf-8">
+    <title>Angular js</title>
+    <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="css/bootstrap-theme.min.css">
+    <link rel="stylesheet" type="text/css" href="css/styles.css">
+  </head>
+  <body>
+    <div role="main" class="container theme-showcase">
+      <div class="" style="margin-top:90px;">
+        <div class="col">
+                    <div class="page-header">
+                        <h2 id="tables">Employee List</h2>
+                    </div>
+                    <form class="form-inline">
+                        <div class="form-group">
+                            <label >Search</label>
+                            <input type="text" ng-model="search" class="form-control" placeholder="Search">
+                        </div>
+                    </form>
+                    <div class="bs-component" ng-controller="list">
+                        <table class="tabledetails">
+                            <thead>
+                                <tr>
+                                    <thead>
+                                        <tr>
+                                            <th ng-click="sort('id')">Id
+                                                <span class="sort-icon" ng-show="sortKey=='id'" ng-class="{'glyphicon-chevron-up':reverse,'glyphicon-chevron-down':!reverse}"></span>
+                                            </th>
+                                            <th ng-click="sort('name')">Name
+                                                <span class="sort-icon" ng-show="sortKey=='name'" ng-class="{'glyphicon-chevron-up':reverse,'glyphicon-chevron-down':!reverse}"></span>
+                                            </th>
+                                            <th ng-click="sort('email_id')">EmailId
+                                                <span class="sort-icon" ng-show="sortKey=='email_id'" ng-class="{'glyphicon-chevron-up':reverse,'glyphicon-chevron-down':!reverse}"></span>
+                                            </th>
+                                            <th ng-click="sort('phone_number')">PhoneNumber
+                                                <span class="sort-icon" ng-show="sortKey=='phone_number'" ng-class="{'glyphicon-chevron-up':reverse,'glyphicon-chevron-down':!reverse}"></span>
+                                            </th>
+                                        </tr>
+                                    </thead>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr dir-paginate="user in users|itemsPerPage:15|filter:search|orderBy:sortKey:reverse">
+                                    <td>{{user.id}}</td>
+                                    <td>{{user.name}}</td>
+                                    <td>{{user.email_id}}</td>
+                                    <td>{{user.phone_number}}</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                        <dir-pagination-controls
+                            max-size="15"
+                            direction-links="true"
+                            boundary-links="true" >
+                        </dir-pagination-controls>
+                    </div>
+                    </div>
+                </div>
+      </div>
+    </div>
+        <!-- if the lib folder is lost the we use this link  -->
+        <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.5.1/angular.js"></script> -->
+        <script src="lib/angular/angular.js"></script>
+        <script src="lib/dirPagination.js"></script>
+        <script src="app/app.js"></script>
+        
+  </body>
+</html>
